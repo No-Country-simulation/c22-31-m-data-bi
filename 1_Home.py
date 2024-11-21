@@ -6,7 +6,7 @@ st.title("Welcome to Fraud Detection System")
 st.write("Description of the project...")
 
 # Path for the temporary file
-TEMP_FILE_PATH = "data/raw_data/dataset.csv"
+TEMP_FILE_PATH = "data/dataset.csv"
 
 st.write("Upload a CSV file to start the analysis.")
 
