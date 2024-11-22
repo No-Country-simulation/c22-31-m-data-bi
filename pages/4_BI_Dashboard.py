@@ -5,7 +5,7 @@ import pandas as pd
 st.title("BI Dashboard")
 
 # Temporary file path for saving and loading datasets
-TEMP_FILE_PATH = "temp_dataset.csv"
+TEMP_FILE_PATH = "data/dataset.csv"
 
 # Check if the dataset is already loaded in the session state
 if "data" not in st.session_state:
