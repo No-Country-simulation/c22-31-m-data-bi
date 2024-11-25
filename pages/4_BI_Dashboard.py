@@ -22,45 +22,52 @@ if "data" not in st.session_state:
 # Load the dataset from session state
 data = st.session_state["data"]
 
+#Date columns added to data
+data["trans_date_trans_time"] = pd.to_datetime(data["trans_date_trans_time"], errors='coerce')
+data['date'] = data["trans_date_trans_time"].dt.date
+data['month'] = data["trans_date_trans_time"].dt.month_name()
+data['year'] = data["trans_date_trans_time"].dt.year
+
 # Display the first few rows of the dataset for user overview
 st.write(data.head())
 
-# chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-# st.bar_chart(chart_data)
-
+# Sidebar filter
 with st.sidebar:
     st.title('Filters')
-    data["trans_date_trans_time"] = pd.to_datetime(data["trans_date_trans_time"], errors='coerce')
-    year_list = list(data["trans_date_trans_time"].dt.year.dropna().unique())[::-1]
-    month_list = list(data["trans_date_trans_time"].dt.month_name().dropna().unique())[::-1]
+    year_list = list(data["year"].dropna().unique())[::-1]
+    month_list = list(data["month"].dropna().unique())[::-1]
     state_list = list(data["state"].sort_values().dropna().unique())
     selected_year = st.selectbox('Select a year', year_list, index=len(year_list)-1)
     selected_month = st.selectbox('Select a month', month_list, index=len(year_list)-1)
     selected_state = st.selectbox('Select a state', state_list, index=len(year_list)-1)
-    df_selected_year = data[data["trans_date_trans_time"].dt.year == selected_year]
-    df_selected_month = data[data["trans_date_trans_time"].dt.month_name() == selected_month]
-    
-    # color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    # selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
 
+# Yearly summary metrics
+year_transactions = data.loc[data['year'] == selected_year]['amt'].count()
+year_transactions_amt = data.loc[data['year'] == selected_year]['amt'].sum()
+avg_monthly_transactions = year_transactions/len(data.loc[data['year']==selected_year]['month'].unique())
+avg_monthly_ftransactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1)].shape[0]
+avg_monthly_tamount = data.loc[(data['year'] == selected_year)]['amt'].sum()/len(data.loc[data['year']==selected_year]['month'].unique())
+avg_monthly_famount = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1)]['amt'].sum()/len(data.loc[data['year']==selected_year]['month'].unique())
 
+print(data.loc[data['year']==selected_year]['month'].unique())
 
+# Yearly summary display
+st.header(f'{selected_year} Summary', divider='gray')
+col0, col1, col2 = st.columns(3)
 
-# def make_heatmap(input_df, input_y, input_x, input_color, input_color_theme):
-#     heatmap = alt.Chart(input_df).mark_rect().encode(
-#             y=alt.Y(f'{input_y}:O', axis=alt.Axis(title="Year", titleFontSize=18, titlePadding=15, titleFontWeight=900, labelAngle=0)),
-#             x=alt.X(f'{input_x}:O', axis=alt.Axis(title="", titleFontSize=18, titlePadding=15, titleFontWeight=900)),
-#             color=alt.Color(f'max({input_color}):Q',
-#                              legend=None,
-#                              scale=alt.Scale(scheme=input_color_theme)),
-#             stroke=alt.value('black'),
-#             strokeWidth=alt.value(0.25),
-#         ).properties(width=900
-#         ).configure_axis(
-#         labelFontSize=12,
-#         titleFontSize=12
-#         ) 
-#     # height=300
-#     return heatmap
+with col0:
+    st.metric(label =f"Total transactions", value = '{:,}'.format(year_transactions))
+    st.metric(label =f"Transacted amount", value = str('$' + '{:,}'.format(round(year_transactions_amt/1000))) + 'k')
 
-# make_heatmap()
+with col1:
+    st.metric(label ="Avg. monthly transactions", value = '{:,}'.format(round(avg_monthly_transactions)))
+    st.metric(label ="Avg. monthly transacted amount", value = ('$' + '{:,}'.format(round(avg_monthly_tamount/1000))) + 'k')
+
+with col2:
+    st.metric(label = "Avg. fraudulent transactions", value= '{:,}'.format(avg_monthly_ftransactions))
+    st.metric(label = "Avg. monthly fraudulent transacted amount", value = ('$' + '{:,}'.format(round(avg_monthly_famount/1000))) + 'k')
+
+yearly_line_chart = data.loc[data['year']==selected_year].groupby("date")['amt'].sum()
+st.line_chart(yearly_line_chart)
+fyearly_line_chart = data.loc[(data['year']==selected_year) & (data['is_fraud']==1)].groupby("date")['amt'].sum()
+st.line_chart(fyearly_line_chart)
