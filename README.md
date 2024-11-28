@@ -1,5 +1,6 @@
-# c22-31-m-data-bi
-## Predictive Fraud Detector (PFD) 2024
+# Predictive Fraud Detector (PFD)
+
+>"La seguridad no es solo un ideal, es una necesidad." – Eleanor Roosevelt
 
 ### Tabla de contenidos
 1. [Historial de versiones](#historial-de-versiones)
@@ -9,6 +10,7 @@
 5. [Desarrollo del proyecto](#desarrollo-del-proyecto)
 6. [Seguimiento y control](#seguimiento-y-control)
 7. [Cierre del proyecto](#cierre-del-proyecto)
+8. [How to Start It](#How-to-Start-It)
 
 ---
 ### Historial de Versiones
@@ -23,34 +25,21 @@
 
 | Item                  | Descripción                                |
 |-----------------------|--------------------------------------------|
-| **Organización / Equipo** | nombre a definir                       |
-| **Proyecto**          | Predictive Fraud Detector (PFD) 2024       |
-| **Fecha de Inicio**   | ...........                                |
-| **Fecha de Cierre**   | ...........                                |
+| **Equipo**            | nombre a definir                           |
+| **Proyecto**          | Predictive Fraud Detector (PFD)            |
+| **Fecha de Inicio**   | 11/11/2024                                 |
+| **Fecha de Cierre**   | 13/12/2024                                 |
 | **Cliente**           | NoCountry                                  |
-| **Líder de Proyecto** | ...........                                |
-| **Project Manager**   | ...........                                |
-
----
-
-### Autores
-
-| Integrantes                      | Rol                                        |
-|----------------------------------|--------------------------------------------|
-| **Business Analyst**             | Jose Ibarra                                |
-| **Data Scientist**               | Erick Smit                                 |
-| **Data Analytics**               | Franco Manassero                           |
-| **Data Analytics**               | Gabriela Lopez                             |
-| **Machine Learning Engineer**    | Silvana Jaramillo                          |
-| **Líder de Proyecto**            | ...........                                |
-| **Project Manager**              | ...........                                |
+| **Líder de Proyecto** | Hernán Casasola                            |
+| **Project Manager**   | Jose Ibarra                                |
 
 ---
 
 ### Planificación del Proyecto
 
 #### Descripción del Proyecto
-El proyecto Predictive Fraud Detector (PFD) 2024 tiene como objetivo crear una plataforma que pueda colaborar con la detección de fraudes en pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de datos.
+El proyecto Predictive Fraud Detector (PFD) tiene como objetivo crear una plataforma que pueda colaborar con la detección de fraudes en pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de datos.
+Los datos que se utilizaron para trabajar fueron extraidos de https://www.kaggle.com/datasets/kartik2112/fraud-detection
 
 #### Objetivo General
 Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una plataforma de pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de comportamiento.
@@ -73,23 +62,25 @@ Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una
 
 #### Fases del Desarrollo
 
-1. ... 
-   
-   
-2. ...
-   
-   
-3. ... 
+| Item                  | Descripción                                |
+|-----------------------|--------------------------------------------|
+|                       |                                            |
+|                       |                                            |
+|                       |                                            |
+|                       |                                            |
+|                       |                                            |
+|                       |                                            |
+|                       |                                            |
 
-4. ...
 
-5. ... 
 
-#### Tecnologías Utilizadas
-- **Streamlit**: 
-- **Python**: Procesamiento de datos Manipulación de datos y análisis estadístico.
-- **Panda, Matplotlib, Seaborn**: Manipulación y Visualización de datos.
-
+#### Languages and Tools
+<p align="left">
+<a href="https://www.python.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/> </a>
+<a https://streamlit.io/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"/> </a>
+<a https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white"/> </a>
+<a https://matplotlib.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/matplotlib-239120?style=for-the-badge&logo=plotly&logoColor=white"/> </a> 
+</p>
 
 
 ---
@@ -106,13 +97,32 @@ Se realizará un seguimiento continuo del proyecto mediante la revisión de los 
 
 ---
 
-### Instrucciones de Uso
-
-
-
+### How to Start It
+| Step                       | Command                                    | Description                                                             |
+|----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
+| Clone the project       | https://github.com/No-Country-simulation/c22-31-m-data-bi.git | Clone the project repository to your local machine.     |
+| Install dependencies    | pip install -r requirements.txt                               | Install all required dependencies for the project.      |
+| Run Predictive Fraud Detector       | streamlit run 1_Home.py                     | Run the app with Streamlit                                    |
+---
 
 
 ### Proximos pasos
 
 En la siguiente fase del proyecto, se recomienda:
+
+---
+
+### Autores
+
+ Integrantes                       Rol          
+Business Analyst              Jose Ibarra                               
+Data Scientist                Erick Smit                                
+Data Analytics                Franco Manassero                           
+
+Gabriela Lopez
+**Data Analytics**
+<p><a href="http://www.linkedin.com/in/-gabriela-lopez" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
+Silvana Jaramillo
+**Machine Learning Engineer**
+<p><a href="https://linkedin.com/in/silvana-jaramillo" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
 
