@@ -51,10 +51,10 @@ Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una
 4. ...
 
 #### Requerimientos del Proyecto
-Python Version: Ensure Python 3.x is installed.
-Dependencies: Required Python libraries must be installed (listed in requirements.txt).
-Streamlit: Streamlit should be installed to run the web application interface.
-Data Files: CSV files to be processed
+- **Python Version**: Ensure Python 3.x is installed.
+- **Dependencies**: Required Python libraries must be installed (listed in `requirements.txt`).
+- **Streamlit**: Streamlit should be installed to run the web application interface.
+- **Data Files**: CSV files to be processed 
 
 ---
 
