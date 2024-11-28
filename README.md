@@ -122,6 +122,7 @@ Data Analytics                Franco Manassero
 Gabriela Lopez
 **Data Analytics**
 <p><a href="http://www.linkedin.com/in/-gabriela-lopez" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
+
 Silvana Jaramillo
 **Machine Learning Engineer**
 <p><a href="https://linkedin.com/in/silvana-jaramillo" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
