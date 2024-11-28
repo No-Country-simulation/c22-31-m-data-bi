@@ -78,16 +78,6 @@ Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una
 
 
 
-
-#### Languages and Tools
-<p align="left">
-<a href="https://www.python.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/> </a>
-<a https://streamlit.io/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"/> </a>
-<a https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white"/> </a>
-<a https://matplotlib.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/matplotlib-239120?style=for-the-badge&logo=plotly&logoColor=white"/> </a> 
-</p>
-
-
 ---
 
 ### Seguimiento y Control
@@ -116,6 +106,16 @@ Se realizará un seguimiento continuo del proyecto mediante la revisión de los 
 En la siguiente fase del proyecto, se recomienda:
 
 ---
+
+
+#### Languages and Tools
+<p align="left">
+<a href="https://www.python.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/> </a>
+<a https://streamlit.io/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"/> </a>
+<a https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white"/> </a>
+<a https://matplotlib.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/matplotlib-239120?style=for-the-badge&logo=plotly&logoColor=white"/> </a> 
+</p>
+
 
 ### Autores
 
