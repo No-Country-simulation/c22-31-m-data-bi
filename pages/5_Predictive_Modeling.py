@@ -5,6 +5,12 @@ import seaborn as sns
 from sklearn.model_selection import train_test_split
 from tensorflow.keras import models, layers
 
+def load_styles():
+    with open("styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_styles()
+
 # Título de la página
 st.title("Predictive Modeling")
 st.write("Training models to predict fraud.")
@@ -47,8 +53,8 @@ if not data.empty:
     if x_col and y_col:
         fig, ax = plt.subplots(figsize=(10, 6))
         try:
-            ax.scatter(data[x_col][data['Class'] == 0], data[y_col][data['Class'] == 0], c="g", label="Legit")
-            ax.scatter(data[x_col][data['Class'] == 1], data[y_col][data['Class'] == 1], c="r", label="Fraud")
+            ax.scatter(data[x_col][data['is_fraud'] == 0], data[y_col][data['is_fraud'] == 0], c="g", label="Legit")
+            ax.scatter(data[x_col][data['is_fraud'] == 1], data[y_col][data['is_fraud'] == 1], c="r", label="Fraud")
             ax.set_xlabel(x_col)
             ax.set_ylabel(y_col)
             ax.legend()

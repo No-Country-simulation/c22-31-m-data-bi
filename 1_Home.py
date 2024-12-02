@@ -2,6 +2,13 @@ import streamlit as st
 import pandas as pd
 import os
 
+def load_styles():
+    with open("styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_styles()
+
+
 st.title("Welcome to Fraud Detection System")
 st.write("Description of the project...")
 
@@ -38,3 +45,4 @@ else:
             st.info("Dataset loaded from the last session.")
         except FileNotFoundError:
             st.warning("No dataset has been loaded.")
+
