@@ -117,12 +117,9 @@ En la siguiente fase del proyecto, se recomienda:
 </p>
 
 
-### Autores
-
- Integrantes                       Rol          
-Business Analyst              Jose Ibarra                               
-Data Scientist                Erick Smit                                
-Data Analytics                Franco Manassero                           
+### Autores    
+                            
+Data Scientist                Erick Smit                                             
 
 Jose Ibarra
 **Business Analyst**
