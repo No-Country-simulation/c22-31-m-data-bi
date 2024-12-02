@@ -4,12 +4,12 @@
 
 ### Table of Contents
 
-1. [Version History](#Version History)
-2. [Project Information](#Project Information)
-3. [Project Planning](#Project Planning)
-4. [Project Development](#Project Development)
-5. [Monitoring and Control](#Monitoring and Control)
-6. [Project Closure](#Project Closure)
+1. [Version History](#version-history)
+2. [Project Information](#project-information)
+3. [Project Planning](#project-planning)
+4. [Project Development](#project-development)
+5. [Monitoring and Control](#monitoring-and-control)
+6. [Project Closure](#project-closure)
 7. [How to Start It](#How-to-Start-It)
 8. [Authors](#Authors)
 
