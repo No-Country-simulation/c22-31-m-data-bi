@@ -3,6 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+def load_styles():
+    with open("styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_styles()
+
 # Constants
 TEMP_FILE_PATH = "data/dataset.csv"
 

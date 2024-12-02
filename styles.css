@@ -1,0 +1,69 @@
+/* Sidebar background */
+[data-testid="stSidebar"] {
+    background-color: #686BE6;
+}
+
+/* Main background */
+[data-testid="stAppViewContainer"] {
+    background-color: #F5F4EE;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+/* Text color for the entire app */
+body {
+    color: #FFF;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Title colors */
+/* h1, h2, h3, h4, h5, h6 {
+    color: #FFF;
+}*/
+
+
+/* Text color (make it white) */
+/* body, .markdown-text-container, .css-1cpxqw2 {
+    color: #ffffff !important;
+} */
+
+/* Set background for all charts and tables */
+/* .stTable, .stDataFrame, .stPlotlyChart, .stMatplotlib, .stAltairChart {
+    background-color: #2B3137 !important;
+    color: white; 
+} */
+
+/* If you have other chart types, you can include them like this: */
+/*.stBokehChart {
+    background-color: #2B3137 !important;
+    color: white;
+}*/
+
+/* Header styling */
+header {
+    width: 100%;
+    background-color: #4CAF50; /* Green background */
+    padding: 15px 0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+/* Footer styling */
+footer {
+    width: 100%;
+    background-color: #333333; /* Dark background */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+
