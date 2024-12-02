@@ -124,6 +124,10 @@ Business Analyst              Jose Ibarra
 Data Scientist                Erick Smit                                
 Data Analytics                Franco Manassero                           
 
+Jose Ibarra
+**Business Analyst**
+<p><a href="https://www.linkedin.com/in/jose-ignacio-ibarra-696b03a6" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
+
 Gabriela Lopez
 **Data Analytics**
 <p><a href="http://www.linkedin.com/in/-gabriela-lopez" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
