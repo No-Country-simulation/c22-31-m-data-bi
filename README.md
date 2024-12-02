@@ -1,165 +1,134 @@
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from tensorflow.keras.utils import to_categorical
-from sklearn.preprocessing import OneHotEncoder, StandardScaler,  LabelEncoder
+# Predictive Fraud Detector (PFD)
 
-# Cargar el conjunto de datos en un DataFrame de pandas
-df1 = pd.read_csv('/content/drive/MyDrive/dataset/fraudTrain.csv')
-df2 = pd.read_csv('/content/drive/MyDrive/dataset/fraudTest.csv')
+>"La seguridad no es solo un ideal, es una necesidad." – Eleanor Roosevelt
 
-# Mostrar las primeras filas del DataFrame para verificar que se haya cargado correctamente
-print(df1.head())
-print(df2.head())
+### Tabla de contenidos
+1. [Historial de versiones](#historial-de-versiones)
+2. [Información del proyecto](#información-del-proyecto)
+3. [Autores](#autores)
+4. [Planificación del proyecto](#planificación-del-proyecto)
+5. [Desarrollo del proyecto](#desarrollo-del-proyecto)
+6. [Seguimiento y control](#seguimiento-y-control)
+7. [Cierre del proyecto](#cierre-del-proyecto)
+8. [How to Start It](#How-to-Start-It)
 
-Unnamed: 0 trans_date_trans_time            cc_num  \
-0           0   2019-01-01 00:00:18  2703186189652095   
-1           1   2019-01-01 00:00:44      630423337322   
-2           2   2019-01-01 00:00:51    38859492057661   
-3           3   2019-01-01 00:01:16  3534093764340240   
-4           4   2019-01-01 00:03:06   375534208663984   
+---
+### Historial de Versiones
 
-                             merchant       category     amt      first  \
-0          fraud_Rippin, Kub and Mann       misc_net    4.97   Jennifer   
-1     fraud_Heller, Gutmann and Zieme    grocery_pos  107.23  Stephanie   
-2                fraud_Lind-Buckridge  entertainment  220.11     Edward   
-3  fraud_Kutch, Hermiston and Farrell  gas_transport   45.00     Jeremy   
-4                 fraud_Keeling-Crist       misc_pos   41.96      Tyler   
+| Fecha      | Versión | Autor                             | Organización | Descripción                                              |
+|------------|---------|-----------------------------------|--------------|----------------------------------------------------------|
+| .......... | ....... |...................................|..............|..........................................................|
 
-      last gender                        street  ...      lat      long  \
-0    Banks      F                561 Perry Cove  ...  36.0788  -81.1781   
-1     Gill      F  43039 Riley Greens Suite 393  ...  48.8878 -118.2105   
-2  Sanchez      M      594 White Dale Suite 530  ...  42.1808 -112.2620   
-3    White      M   9443 Cynthia Court Apt. 038  ...  46.2306 -112.1138   
-4   Garcia      M              408 Bradley Rest  ...  38.4207  -79.4629   
+---
 
-   city_pop                                job         dob  \
-0      3495          Psychologist, counselling  1988-03-09   
-1       149  Special educational needs teacher  1978-06-21   
-2      4154        Nature conservation officer  1962-01-19   
-3      1939                    Patent attorney  1967-01-12   
-4        99     Dance movement psychotherapist  1986-03-28   
+### Información del Proyecto
 
-                          trans_num   unix_time  merch_lat  merch_long  \
-0  0b242abb623afc578575680df30655b9  1325376018  36.011293  -82.048315   
-1  1f76529f8574734946361c461b024d99  1325376044  49.159047 -118.186462   
-2  a1a22d70485983eac12b5b88dad1cf95  1325376051  43.150704 -112.154481   
-3  6b849c168bdad6f867558c3793159a81  1325376076  47.034331 -112.561071   
-4  a41d7549acf90789359a9aa5346dcb46  1325376186  38.674999  -78.632459   
+| Item                  | Descripción                                |
+|-----------------------|--------------------------------------------|
+| **Equipo**            | nombre a definir                           |
+| **Proyecto**          | Predictive Fraud Detector (PFD)            |
+| **Fecha de Inicio**   | 11/11/2024                                 |
+| **Fecha de Cierre**   | 13/12/2024                                 |
+| **Cliente**           | NoCountry                                  |
+| **Líder de Proyecto** | Hernán Casasola                            |
+| **Project Manager**   | Jose Ibarra                                |
 
-   is_fraud  
-0         0  
-1         0  
-2         0  
-3         0  
-4         0  
+---
 
-[5 rows x 23 columns]
-   Unnamed: 0 trans_date_trans_time            cc_num  \
-0           0   2020-06-21 12:14:25  2291163933867244   
-1           1   2020-06-21 12:14:33  3573030041201292   
-2           2   2020-06-21 12:14:53  3598215285024754   
-3           3   2020-06-21 12:15:15  3591919803438423   
-4           4   2020-06-21 12:15:17  3526826139003047   
+### Planificación del Proyecto
 
-                               merchant        category    amt   first  \
-0                 fraud_Kirlin and Sons   personal_care   2.86    Jeff   
-1                  fraud_Sporer-Keebler   personal_care  29.84  Joanne   
-2  fraud_Swaniawski, Nitzsche and Welch  health_fitness  41.28  Ashley   
-3                     fraud_Haley Group        misc_pos  60.05   Brian   
-4                 fraud_Johnston-Casper          travel   3.19  Nathan   
+#### Descripción del Proyecto
+El proyecto Predictive Fraud Detector (PFD) tiene como objetivo crear una plataforma que pueda colaborar con la detección de fraudes en pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de datos.
+Los datos que se utilizaron para trabajar fueron extraidos de https://www.kaggle.com/datasets/kartik2112/fraud-detection
 
-       last gender                       street  ...      lat      long  \
-0   Elliott      M            351 Darlene Green  ...  33.9659  -80.9355   
-1  Williams      F             3638 Marsh Union  ...  40.3207 -110.4360   
-2     Lopez      F         9333 Valentine Point  ...  40.6729  -73.5365   
-3  Williams      M  32941 Krystal Mill Apt. 552  ...  28.5697  -80.8191   
-4    Massey      M     5783 Evan Roads Apt. 465  ...  44.2529  -85.0170   
+#### Objetivo General
+Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una plataforma de pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de comportamiento.
 
-   city_pop                     job         dob  \
-0    333497     Mechanical engineer  1968-03-19   
-1       302  Sales professional, IT  1990-01-17   
-2     34496       Librarian, public  1970-10-21   
-3     54767            Set designer  1987-07-25   
-4      1126      Furniture designer  1955-07-06   
+#### Objetivos Específicos
+- **Exploratory Data Analysis**: Perform interactive data analysis to uncover insights such as distributions, correlations, and outliers.
+- **Data Preprocessing**: Prepare the data by cleaning, normalizing, encoding, and scaling, ensuring readiness for model training.
+- **Model Training**: Develop and train predictive models to detect fraudulent transactions, leveraging machine learning techniques.
+- **Real-Time Fraud Detectio**: Simulate real-time fraud detection with transactional data, showcasing system performance.
+- **User Interface**: Provide an interactive web-based interface using Streamlit for seamless user interaction and data visualization.
+- **Report Generation**: Generate downloadable reports with visualizations and key metrics for comprehensive analysis summaries
 
-                          trans_num   unix_time  merch_lat  merch_long  \
-0  2da90c7d74bd46a0caf3777415b3ebd3  1371816865  33.986391  -81.200714   
-1  324cc204407e99f51b0d6ca0055005e7  1371816873  39.450498 -109.960431   
-2  c81755dbbbea9d5c77f094348a7579be  1371816893  40.495810  -74.196111   
-3  2159175b9efe66dc301f149d3d5abf8c  1371816915  28.812398  -80.883061   
-4  57ff021bd3f328f8738bb535c302a31b  1371816917  44.959148  -85.884734   
+#### Requerimientos del Proyecto
+- **Python Version**: Ensure Python 3.x is installed.
+- **Dependencies**: Required Python libraries must be installed (listed in `requirements.txt`).
+- **Streamlit**: Streamlit should be installed to run the web application interface.
+- **Data Files**: CSV files to be processed 
 
-   is_fraud  
-0         0  
-1         0  
-2         0  
-3         0  
-4         0  
+---
 
-[5 rows x 23 columns]
+### Desarrollo del Proyecto
+
+#### Fases del Desarrollo
+
+| **Item**              | **Description**                           |
+|-----------------------|-------------------------------------------|
+| **Home**              | Introduction to the credit card fraud problem, its significance, and the areas involved. Navigation to key system sections. |
+| **Data Ingestion & Exploration** | Upload datasets in CSV format or connect to databases. Interactive data exploration: distributions, correlations, and outliers. |
+| **Data Preprocessing** | Data cleaning and transformation: handling missing values, duplicates, and scaling. User-customizable transformations. |
+| **BI Dashboard**      | Interactive dashboard for key KPIs like fraud percentage, trends, and geographic analysis. Dynamic charts and visualizations. |
+| **Predictive Modeling** | Model training for fraud prediction. Evaluation metrics such as precision, recall, and F1-score. User testing of hyperparameters. |
+| **Advanced Analysis** | Model interpretation using SHAP or LIME. Fraudulent behavior segmentation with clustering techniques. |
+| **Real-Time Detection** | Real-time prediction simulation with uploaded or queried data. Visualization of predictions and associated explanations. |
+| **Reporting & Export** | Generate downloadable reports in PDF or Excel format with key metrics and charts. Includes an executive summary of the analysis. |
+| **Documentation**     | Technical details of the project, tools used, and team roles. System usage guide. |
 
 
-df1 = df1.drop(columns=['Unnamed: 0', 'trans_date_trans_time', 'dob', 'merchant', 'street', 'job', 'first', 'last', 'trans_num', 'category', 'gender', 'city', 'state'])
 
-from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(new_df[["amt", "long", "merch_long",
-                                                             "city_pop"]], df1['is_fraud'], test_size=0.25, random_state=42)
+---
 
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-x_train = scaler.fit_transform(x_train)
-x_test = scaler.transform(x_test)
+### Seguimiento y Control
+
+Se realizará un seguimiento continuo del proyecto mediante la revisión de los avances y las pruebas de calidad en cada fase.
 
 
-import tensorflow as tf
-from tensorflow import keras
-tf.random.set_seed(42)
-np.random.seed(42)
-early_stopping_cb = keras.callbacks.EarlyStopping(patience = 20)
+---
+
+### Cierre del Proyecto
 
 
-model = keras.models.Sequential([
-    keras.layers.Flatten(input_shape=(x_train.shape[1],)),
-    keras.layers.Dense(128, activation="relu"),
-    keras.layers.Dense(64, activation="relu"),
-    keras.layers.Dense(32, activation="relu"),
-    keras.layers.Dense(16, activation="relu"),
-    keras.layers.Dense(1, activation="sigmoid"),
-])
+---
+
+### How to Start It
+| Step                       | Command                                    | Description                                                             |
+|----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
+| Clone the project       | https://github.com/No-Country-simulation/c22-31-m-data-bi.git | Clone the project repository to your local machine.     |
+| Install dependencies    | pip install -r requirements.txt                               | Install all required dependencies for the project.      |
+| Run Predictive Fraud Detector       | streamlit run 1_Home.py                     | Run the app with Streamlit                                    |
+---
 
 
-model.summary()
+### Proximos pasos
 
-Model: "sequential_4"
+En la siguiente fase del proyecto, se recomienda:
 
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
-┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
-│ flatten_2 (Flatten)                  │ (None, 4)                   │               0 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_10 (Dense)                     │ (None, 128)                 │             640 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_11 (Dense)                     │ (None, 64)                  │           8,256 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_12 (Dense)                     │ (None, 32)                  │           2,080 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_13 (Dense)                     │ (None, 16)                  │             528 │
-├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
-│ dense_14 (Dense)                     │ (None, 1)                   │              17 │
+---
 
 
-model.compile(optimizer='rmsprop',
-             loss='binary_crossentropy',
-             metrics=['acc'])
+#### Languages and Tools
+<p align="left">
+<a href="https://www.python.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/> </a>
+<a https://streamlit.io/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white"/> </a>
+<a https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white"/> </a>
+<a https://matplotlib.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/matplotlib-239120?style=for-the-badge&logo=plotly&logoColor=white"/> </a> 
+</p>
 
-             label_encoder = LabelEncoder()
-y_train_encoded = label_encoder.fit_transform(y_train)
-y_test_encoded = label_encoder.transform(y_test)
 
-history = model.fit(x_train,
-                      y_train_encoded,
-                      epochs=40,
-                      validation_data=(x_test, y_test_encoded)
-                      )
+### Autores    
+                            
+Data Scientist                Erick Smit                                             
+
+Jose Ibarra
+**Business Analyst**
+<p><a href="https://www.linkedin.com/in/jose-ignacio-ibarra-696b03a6" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
+
+Gabriela Lopez
+**Data Analytics**
+<p><a href="http://www.linkedin.com/in/-gabriela-lopez" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
+
+Silvana Jaramillo
+**Machine Learning Engineer**
+<p><a href="https://linkedin.com/in/silvana-jaramillo" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
