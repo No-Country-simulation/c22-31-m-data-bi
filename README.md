@@ -1,50 +1,52 @@
 # Predictive Fraud Detector (PFD)
 
->"La seguridad no es solo un ideal, es una necesidad." – Eleanor Roosevelt
+>"Security is not just an ideal, it is a necessity." – Eleanor Roosevelt
 
-### Tabla de contenidos
-1. [Historial de versiones](#historial-de-versiones)
-2. [Información del proyecto](#información-del-proyecto)
-3. [Autores](#autores)
-4. [Planificación del proyecto](#planificación-del-proyecto)
-5. [Desarrollo del proyecto](#desarrollo-del-proyecto)
-6. [Seguimiento y control](#seguimiento-y-control)
-7. [Cierre del proyecto](#cierre-del-proyecto)
-8. [How to Start It](#How-to-Start-It)
+### Table of Contents
+
+1. [Version History](#Version History)
+2. [Project Information](#Project Information)
+3. [Project Planning](#Project Planning)
+4. [Project Development](#Project Development)
+5. [Monitoring and Control](#Monitoring and Control)
+6. [Project Closure](#Project Closure)
+7. [How to Start It](#How-to-Start-It)
+8. [Authors](#Authors)
 
 ---
-### Historial de Versiones
+### Version History
 
-| Fecha      | Versión | Autor                             | Organización | Descripción                                              |
+
+| Date      | Version | Author                             | Organization | Description                                              |
 |------------|---------|-----------------------------------|--------------|----------------------------------------------------------|
 | .......... | ....... |...................................|..............|..........................................................|
 
 ---
 
-### Información del Proyecto
+### Project Information
 
 | Item                  | Descripción                                |
 |-----------------------|--------------------------------------------|
-| **Equipo**            | nombre a definir                           |
-| **Proyecto**          | Predictive Fraud Detector (PFD)            |
-| **Fecha de Inicio**   | 11/11/2024                                 |
-| **Fecha de Cierre**   | 13/12/2024                                 |
-| **Cliente**           | NoCountry                                  |
-| **Líder de Proyecto** | Hernán Casasola                            |
+| **Team**            | nombre a definir                           |
+| **Project**          | Predictive Fraud Detector (PFD)            |
+| **Start Date**   | 11/11/2024                                 |
+| **End Date**   | 13/12/2024                                 |
+| **Client**           | NoCountry                                  |
+| **Project Leader** | Hernán Casasola                            |
 | **Project Manager**   | Jose Ibarra                                |
 
 ---
 
-### Planificación del Proyecto
+### Project Planning
 
-#### Descripción del Proyecto
-El proyecto Predictive Fraud Detector (PFD) tiene como objetivo crear una plataforma que pueda colaborar con la detección de fraudes en pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de datos.
-Los datos que se utilizaron para trabajar fueron extraidos de https://www.kaggle.com/datasets/kartik2112/fraud-detection
+#### Project Description
+The Predictive Fraud Detector (PFD) project aims to create a platform to assist in detecting fraud in electronic payments, utilizing machine learning techniques and data analysis.
+The dataset used for this project was sourced from Kaggle. https://www.kaggle.com/datasets/kartik2112/fraud-detection
 
-#### Objetivo General
-Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una plataforma de pagos electrónicos, utilizando técnicas de aprendizaje automático y análisis de comportamiento.
+#### General Objective
+Develop a predictive model to detect fraudulent transactions on an electronic payment platform using machine learning techniques and behavioral analysis.
 
-#### Objetivos Específicos
+#### Specific Objectives
 - **Exploratory Data Analysis**: Perform interactive data analysis to uncover insights such as distributions, correlations, and outliers.
 - **Data Preprocessing**: Prepare the data by cleaning, normalizing, encoding, and scaling, ensuring readiness for model training.
 - **Model Training**: Develop and train predictive models to detect fraudulent transactions, leveraging machine learning techniques.
@@ -52,7 +54,7 @@ Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una
 - **User Interface**: Provide an interactive web-based interface using Streamlit for seamless user interaction and data visualization.
 - **Report Generation**: Generate downloadable reports with visualizations and key metrics for comprehensive analysis summaries
 
-#### Requerimientos del Proyecto
+#### Project Requirements
 - **Python Version**: Ensure Python 3.x is installed.
 - **Dependencies**: Required Python libraries must be installed (listed in `requirements.txt`).
 - **Streamlit**: Streamlit should be installed to run the web application interface.
@@ -60,9 +62,9 @@ Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una
 
 ---
 
-### Desarrollo del Proyecto
+### Project Development
 
-#### Fases del Desarrollo
+#### Development Phases
 
 | **Item**              | **Description**                           |
 |-----------------------|-------------------------------------------|
@@ -80,14 +82,14 @@ Desarrollar un modelo predictivo para detectar transacciones fraudulentas en una
 
 ---
 
-### Seguimiento y Control
+### Monitoring and Control
 
-Se realizará un seguimiento continuo del proyecto mediante la revisión de los avances y las pruebas de calidad en cada fase.
+Continuous monitoring of the project will be conducted through progress reviews and quality testing at each phase.
 
 
 ---
 
-### Cierre del Proyecto
+### Project Closure
 
 
 ---
@@ -101,12 +103,6 @@ Se realizará un seguimiento continuo del proyecto mediante la revisión de los 
 ---
 
 
-### Proximos pasos
-
-En la siguiente fase del proyecto, se recomienda:
-
----
-
 
 #### Languages and Tools
 <p align="left">
@@ -117,7 +113,7 @@ En la siguiente fase del proyecto, se recomienda:
 </p>
 
 
-### Autores    
+### Authors   
                             
 Data Scientist                Erick Smit                                             
 
