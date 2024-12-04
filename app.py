@@ -86,15 +86,17 @@ if st.session_state.logged_in:
     # If logged in, show the navigation menu with pages
     pg = st.navigation(
         {
-            "Account": [home, about, logout_page],
+            "Account": [logout_page],
             "Main Menu": [
+                home,
                 data_exploration,
                 data_preprocessing,
                 bi_dashboard,
                 predictive_modeling,
                 advanced_analysis,
                 real_time_detection,
-                reports
+                reports,
+                about
                 ]
         }
     )
