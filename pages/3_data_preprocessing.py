@@ -1,13 +1,18 @@
 import streamlit as st
 import pandas as pd
+import os
 
 
-
-def load_styles():
-    with open("styles.css") as f:
+# Load CSS file
+def load_css():
+    css_path = os.path.join("styles", "styles.css")
+    with open(css_path, "r") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-load_styles()
+
+# Load styles and text
+load_css()
+
 
 # Title of the application
 st.title("Data Preprocessing")

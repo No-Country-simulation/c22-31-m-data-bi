@@ -1,0 +1,56 @@
+/* Sidebar */
+
+/* Sidebar background */
+[data-testid="stSidebar"] {
+    background-color: #222434;
+    border-right: 2px solid #848E94;
+    height: 100vh;
+}
+
+/* Change text color to white */
+.st-emotion-cache-6tkfeg {
+    color: #FFFFFF !important;
+}
+
+/* Specific style for text color */
+.st-emotion-cache-1rtdyuf {
+    color: #FFFFFF;
+}
+
+/* Style for sidebar links */
+[data-testid="stSidebarNavLink"] {
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+/* Hover effect for sidebar links */
+[data-testid="stSidebarNavLink"]:hover {
+    background-color: #848E94;
+}
+
+/* header */
+
+/* header */
+[data-testid="stHeader"] {
+    background-color: #FFFFFF;
+
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+[data-testid="stHeader"] .st-emotion-cache-12fmjuu {
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Background for the main container */
+.stMain {
+    background-color: #E8ECEF;
+    padding: 20px;
+    color: #000000;
+}
+

@@ -6,18 +6,26 @@ from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 import os
 import pickle
+import os
 
-def load_styles():
-    with open("styles.css") as f:
+
+# Load CSS file
+def load_css():
+    css_path = os.path.join("styles", "styles.css")
+    with open(css_path, "r") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-load_styles()
+
+# Load styles and text
+load_css()
+
+
 
 # Application title
 st.title("Real-Time Fraud Detection")
 
 # Paths
-MODEL_PATH = "data/models/modelo_rna_sintetico.h5"
+MODEL_PATH = "models/modelo_rna_sintetico.h5"
 SCALER_PATH = "data/models/scaler.pkl"
 TEMP_FILE_PATH = "data/dataset.csv"
 
@@ -154,3 +162,4 @@ if model:
         time.sleep(refresh_rate)
 else:
     st.warning("Please load a model to start monitoring.")
+
