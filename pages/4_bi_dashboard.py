@@ -1,5 +1,19 @@
 import streamlit as st
 import pandas as pd
+import os
+
+
+# Load CSS file
+def load_css():
+    css_path = os.path.join("styles", "styles.css")
+    with open(css_path, "r") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
+# Load styles and text
+load_css()
+
+
 
 # Application title
 st.title("BI Dashboard")
@@ -71,3 +85,5 @@ yearly_line_chart = data.loc[data['year']==selected_year].groupby("date")['amt']
 st.line_chart(yearly_line_chart)
 fyearly_line_chart = data.loc[(data['year']==selected_year) & (data['is_fraud']==1)].groupby("date")['amt'].sum()
 st.line_chart(fyearly_line_chart)
+
+
