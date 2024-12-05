@@ -116,6 +116,10 @@ if model:
         batch_size = 10
         transactions_in_transit = data.sample(n=batch_size, replace=True)
 
+        if "transaction_count" not in st.session_state:
+            st.session_state["transaction_count"] = 0
+
+
         # Increment transaction count in session state
         st.session_state["transaction_count"] += len(transactions_in_transit)
 
@@ -161,8 +165,7 @@ if model:
         if not fraudulent_transactions.empty:
             alert_placeholder.error(
                 f"🚨 ALERT: Fraudulent transactions detected:\n"
-                f"{fraudulent_transactions[
-                    ['transaction_id', 'is_fraud_pred']]}")
+                f"{fraudulent_transactions[['transaction_id', 'is_fraud_pred']]}")
         else:
             alert_placeholder.success("✅ No fraud detected in this iteration.")
 
