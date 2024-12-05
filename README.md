@@ -73,7 +73,7 @@ Develop a predictive model to detect fraudulent transactions on an electronic pa
 | **Data Preprocessing** | Data cleaning and transformation: handling missing values, duplicates, and scaling. User-customizable transformations. |
 | **BI Dashboard**      | Interactive dashboard for key KPIs like fraud percentage, trends, and geographic analysis. Dynamic charts and visualizations. |
 | **Predictive Modeling** | Model training for fraud prediction. Evaluation metrics such as precision, recall, and F1-score. User testing of hyperparameters. |
-| **Advanced Analysis** | Model interpretation using SHAP or LIME. Fraudulent behavior segmentation with clustering techniques. |
+| **Advanced Analysis** | Model interpretation using SHAP. Fraudulent behavior segmentation with clustering techniques. |
 | **Real-Time Detection** | Real-time prediction simulation with uploaded or queried data. Visualization of predictions and associated explanations. |
 | **Reporting & Export** | Generate downloadable reports in PDF or Excel format with key metrics and charts. Includes an executive summary of the analysis. |
 | **Documentation**     | Technical details of the project, tools used, and team roles. System usage guide. |
@@ -99,7 +99,7 @@ Continuous monitoring of the project will be conducted through progress reviews 
 |----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
 | Clone the project       | https://github.com/No-Country-simulation/c22-31-m-data-bi.git | Clone the project repository to your local machine.     |
 | Install dependencies    | pip install -r requirements.txt                               | Install all required dependencies for the project.      |
-| Run Predictive Fraud Detector       | streamlit run 1_Home.py                     | Run the app with Streamlit                                    |
+| Run Predictive Fraud Detector       | streamlit run app.py                     | Run the app with Streamlit                                    |
 ---
 
 
