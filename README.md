@@ -112,7 +112,6 @@ Continuous monitoring of the project will be conducted through progress reviews 
 <a https://matplotlib.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/matplotlib-239120?style=for-the-badge&logo=plotly&logoColor=white"/> </a>
 <a https://www.tensorflow.org" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/> </a>
 <a https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/> </a>
-<a https://azure.microsoft.com/es-es" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/microsoft%20azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white"/> </a>
 
 </p>
 
