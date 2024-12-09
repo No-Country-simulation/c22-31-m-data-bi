@@ -4,3 +4,4 @@ matplotlib==3.9.2
 tensorflow==2.18.0
 keras==3.6.0
 scikit-learn==1.5.2
+vega-datasets==0.9.0
