@@ -4,7 +4,10 @@ import pandas as pd
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import load_model
-from sklearn.metrics import roc_auc_score, classification_report, roc_curve
+from sklearn.metrics import (
+    roc_auc_score, classification_report,
+    roc_curve, confusion_matrix, ConfusionMatrixDisplay
+)
 import os
 
 
@@ -59,7 +62,7 @@ if st.checkbox('Show test dataset'):
 X_test = test_data.iloc[:, :-1].values  # All columns except the last
 y_test = test_data.iloc[:, -1].values   # Last column as labels
 
-# Model evaluation
+
 try:
     st.subheader("Model Evaluation")
     # Get predictions from the model
@@ -79,12 +82,15 @@ try:
         y_test, y_pred_class, output_dict=True
     )
 
+    # Calculate confusion matrix
+    conf_matrix = confusion_matrix(y_test, y_pred_class)
+
     # Display evaluation results
     st.write(f"**AUC-ROC:** {roc_auc:.4f}")
     st.write("**Classification Report:**")
     st.table(pd.DataFrame(classification_rep).transpose())
 
-    # Plot AUC-ROC curve
+    # Plot ROC Curve
     st.subheader("ROC Curve")
     fpr, tpr, thresholds = roc_curve(y_test, y_pred)
     plt.figure(figsize=(8, 6))
@@ -94,7 +100,21 @@ try:
     plt.ylabel('True Positive Rate')
     plt.title('ROC Curve')
     plt.legend(loc='best')
-    st.pyplot(plt)  # Display the plot in Streamlit
+    st.pyplot(plt)
+    plt.close()
+
+    # Plot Confusion Matrix
+    st.subheader("Confusion Matrix")
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.heatmap(
+        conf_matrix, annot=True,
+        fmt='d', cmap='Blues',
+        cbar=False, ax=ax
+        )
+    ax.set_xlabel("Predicted Labels")
+    ax.set_ylabel("True Labels")
+    ax.set_title("Confusion Matrix")
+    st.pyplot(fig)
     plt.close()
 
 except Exception as e:
