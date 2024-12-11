@@ -3,8 +3,13 @@
 /* Sidebar background */
 [data-testid="stSidebar"] {
     background-color: #222434;
-    border-right: 2px solid #848E94;
+    border-right: 2px solid #0A2E36;
     height: 100vh;
+    margin-top: 58px; 
+}
+
+[data-testid="stNavSectionHeader"] {
+    color: #ff66c4; 
 }
 
 /* Change text color to white */
@@ -28,29 +33,67 @@
     background-color: #848E94;
 }
 
-/* header */
+/* Header */
 
 /* header */
 [data-testid="stHeader"] {
-    background-color: #FFFFFF;
-
+    /* background-color: #0A2E36; */
+    background-color: #222434;
+    border-right: 2px solid #222434;
     padding: 10px;
     display: flex;
     align-items: center;
+    background-image: url('../static/logo.png');
 }
 
-[data-testid="stHeader"] .st-emotion-cache-12fmjuu {
-    color: #000000;
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+
+[data-testid="stHeader"]::before {
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 150px;
+    height: 50px;
+
+}
+[data-testid="stHeader"]::after {
+    content: "Riskova";
+    display: inline-block;
+    color: white;
     font-size: 24px;
     font-weight: bold;
-    text-align: center;
-    font-family: Arial, sans-serif;
+    margin-right: 50px;
+    font-family: 'Squada One', sans-serif;
 }
 
-/* Background for the main container */
+/* Main Container Background */
 .stMain {
-    background-color: #E8ECEF;
+    /* background: linear-gradient(
+        to bottom,
+        #0A2E36,
+        #140D28,
+        #051234
+    ); */
+    background-color: #FFFFFF;
+    /* color: #FFFFFF; /* Set all text to white */
     padding: 20px;
-    color: #000000;
 }
 
+/* Set all text inside Streamlit components to white */
+/*.stApp, .stText, .stMarkdown, .stRadio, .stCheckbox, .stButton button, .stTextInput input, .stSelectbox div {
+    color: #FFFFFF !important;
+}*/
+
+/* Optional: Make sure input fields and buttons are visible */
+.stButton button {
+    color: #FFFFFF;
+    background: linear-gradient(
+        to bottom,
+        #145CB5,
+        #083770,
+        #531170
+    );
+}
