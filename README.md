@@ -8,8 +8,6 @@
 2. [Project Information](#project-information)
 3. [Project Planning](#project-planning)
 4. [Project Development](#project-development)
-5. [Monitoring and Control](#monitoring-and-control)
-6. [Project Closure](#project-closure)
 7. [How to Start It](#How-to-Start-It)
 8. [Authors](#Authors)
 
