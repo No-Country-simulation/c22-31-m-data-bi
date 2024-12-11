@@ -17,9 +17,9 @@
 ### Version History
 
 
-| Date      | Version | Author                             | Organization | Description                                              |
+| Date      | Version | Team                             | Organization | Description                                              |
 |------------|---------|-----------------------------------|--------------|----------------------------------------------------------|
-| .......... | ....... |...................................|..............|..........................................................|
+| 13/12/2024 |  01 |Riskover| No Country| MVP |
 
 ---
 
@@ -27,7 +27,7 @@
 
 | Item                  | Descripción                                |
 |-----------------------|--------------------------------------------|
-| **Team**            | nombre a definir                           |
+| **Team**            | Riskover                          |
 | **Project**          | Predictive Fraud Detector (PFD)            |
 | **Start Date**   | 11/11/2024                                 |
 | **End Date**   | 13/12/2024                                 |
@@ -82,18 +82,6 @@ Develop a predictive model to detect fraudulent transactions on an electronic pa
 
 ---
 
-### Monitoring and Control
-
-Continuous monitoring of the project will be conducted through progress reviews and quality testing at each phase.
-
-
----
-
-### Project Closure
-
-
----
-
 ### How to Start It
 | Step                       | Command                                    | Description                                                             |
 |----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
@@ -116,9 +104,7 @@ Continuous monitoring of the project will be conducted through progress reviews 
 </p>
 
 
-### Authors   
-                            
-Data Scientist                Erick Smit                                             
+### Authors                                           
 
 Jose Ibarra
 **Business Analyst**
