@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import base64
 
 
 # Load CSS file
@@ -109,13 +110,24 @@ def analyze_target_column(data):
         labels = value_counts.index
         sizes = value_counts.values
 
+        # Map categories to labels
+        categories = [0,1]
+        labels = ["Fraudulent" if category == 1 else "Legitimate" for category in categories]
+
         fig, ax = plt.subplots(figsize=(10, 8))
-        ax.pie(
-            sizes, labels=labels, autopct='%1.1f%%', startangle=90,
-            colors=['#505CCB', '#E8ECEF']
-        )
+        wedges, texts, autotexts = ax.pie(
+            sizes, explode= (0.1, 0), autopct='%1.1f%%', startangle=90,
+            colors=['#1f77b4', '#ff7f0e'], pctdistance=0.85)
+        
+        # Offset the percentage labels
+        for autotext in autotexts:
+            x, y = autotext.get_position()  # Get current position
+            autotext.set_position((x * 1.25, y * 1.25))  # Move 20% farther from the center
+
+        # Add a legend
+        ax.legend(wedges, labels, title="Categories", loc="upper right", bbox_to_anchor=(1, 1))
         for text in ax.texts:
-            text.set_color('#222434')
+            text.set_color('#000000')
         ax.axis('equal')
         st.pyplot(fig)
     else:
@@ -158,7 +170,7 @@ def show_correlation_matrix(data):
         correlation_matrix = data[selected_columns].corr()
         fig, ax = plt.subplots(figsize=(10, 8))
         sns.heatmap(
-            correlation_matrix, annot=True, cmap="coolwarm", ax=ax
+            correlation_matrix, annot=True, cmap="Blues", ax=ax
         )
         st.pyplot(fig)
     else:

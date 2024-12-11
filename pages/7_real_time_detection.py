@@ -7,6 +7,7 @@ from sklearn.preprocessing import StandardScaler
 import os
 import pickle
 import os
+import base64
 
 
 # Load CSS file

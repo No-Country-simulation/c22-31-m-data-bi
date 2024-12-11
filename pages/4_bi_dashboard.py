@@ -4,14 +4,17 @@ import altair as alt
 import json
 import requests
 import os
+import base64
 alt.data_transformers.enable("vegafusion")
+
+# logo
+st.logo("static/riskova_logo.png", size="large", link=None, icon_image=None)
 
 # Load CSS file
 def load_css():
     css_path = os.path.join("styles", "styles.css")
     with open(css_path, "r") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
 
 # Load styles and text
 load_css()
@@ -45,38 +48,9 @@ data['year'] = data["trans_date_trans_time"].dt.year
 
 # Display the first few rows of the dataset for user overview
 st.write(data.head())
-# Sidebar filter
-with st.sidebar:
-    st.title('Filters')
-    year_list = list(data["year"].dropna().unique())[::-1]
-    month_list = list(data["month"].dropna().unique())[::-1]
-    state_list = list(data["state"].sort_values().dropna().unique())
-    selected_year = st.selectbox('Select a year', year_list, index=len(year_list)-1)
-    selected_month = st.selectbox('Select a month',options=["All"] + month_list, index=len(year_list)-1)
-    selected_state = st.selectbox('Select a state', options=["All"]+ state_list, index=len(year_list)-1)
-
-# Define custom CSS for the metric
-st.markdown(
-    """
-    <style>
-    div[data-testid="metric-container"] {
-        background-color: #f9f9f9; /* Optional: Add a background color */
-        border: 1px solid rgba(49, 51, 63, 0.2); /* Optional: Add a border */
-        border-radius: 5px;
-        padding: 10px;
-        margin: 10px;
-        width: 300px; /* Adjust width */
-    }
-    div[data-testid="metric-container"] > label {
-        font-size: 24px; /* Adjust label size */
-    }
-    div[data-testid="metric-container"] > div {
-        font-size: 48px; /* Adjust value size */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+# Year filter contents
+year_list = list(data["year"].dropna().unique())[::-1]
+selected_year = st.selectbox('Select a year', year_list, index=len(year_list)-1)
 
 # Yearly summary metrics
 year_transactions = data.loc[data['year'] == selected_year]['amt'].count()
@@ -155,6 +129,10 @@ st.altair_chart(chart, use_container_width=True)
 # Filter the dataframe based on selections
 filtered_data = data.copy()
 
+# month filter
+month_list = list(data["month"].dropna().unique())[::-1]
+selected_month = st.selectbox('Select a month',options=["All"] + month_list, index=len(year_list)-1)
+
 # Apply filtering conditionally
 if selected_month != "All":
     # Filter by both state and month
@@ -196,14 +174,14 @@ us_states = alt.topo_feature(geojson_url, "states")
 import streamlit as st
 
 # Add a filter to toggle transaction type
-transaction_type = st.selectbox("Select Transaction Type", ["Fraudulent", "Legitimate"])
+transaction_type = st.selectbox("Select Transaction Type", ["Fraudulent", "Legitimate"], key="transaction_type")
 is_fraud_filter = 1 if transaction_type == "Fraudulent" else 0
 
 # Filter data based on selection
 filtered_chart_data = filtered_data[filtered_data["is_fraud"] == is_fraud_filter]
 
 # Create a single map
-single_chart = alt.Chart(us_states).mark_geoshape().encode(
+single_chart = alt.Chart(us_states).mark_geoshape(stroke='black', strokeWidth=0.1).encode(
     color=alt.Color(
         "amt:Q",
         scale=alt.Scale(domain=[0, filtered_chart_data[filtered_chart_data['is_fraud'] == is_fraud_filter]["amt"].max()], range=["#ffd7b5", "#ff7f0e"] if is_fraud_filter else ["#b5d7ff", "#1f77b4"]),
@@ -219,7 +197,7 @@ single_chart = alt.Chart(us_states).mark_geoshape().encode(
 ).project(
     type="albersUsa"
 ).properties(
-    title=f"Transactions by state - Year: {selected_year} | Month: {selected_month}",
+    title=f"{transaction_type} transactions by state - Year: {selected_year} | Month: {selected_month}",
     width=800,
     height=500
 )
@@ -227,30 +205,35 @@ single_chart = alt.Chart(us_states).mark_geoshape().encode(
 st.altair_chart(single_chart, use_container_width=True)
 
 
+# state filter
+state_list = list(data["state"].sort_values().dropna().unique())
+selected_state = st.selectbox('Select a state', options=["All"]+ state_list, index=len(year_list)-1)
 
-# # Layer both charts
-# layered_chart = alt.layer(fraud_chart, legit_chart).resolve_scale(color="independent").properties(
-#     width=1600,
-#     height=1000,
-#     title=f"Transactions by state - Year: {selected_year} | Month: {selected_month}"
-# )
+# state metrics
+year_state_transactions = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state)]['amt'].count()
+year_state_legit_transactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 0) & (data['state'] == selected_state)]['amt'].count()
+year_state_fraud_transactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1) & (data['state'] == selected_state)]['amt'].count()
+year_state_transactions_amt = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state)]['amt'].sum()
+year_state_legit_transactions_amt = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 0) & (data['state'] == selected_state)]['amt'].sum()
+year_state_fraud_transactions_amt = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1) & (data['state'] == selected_state)]['amt'].sum()
 
-# st.altair_chart(layered_chart, use_container_width=True)
- 
-# chart = alt.Chart(us_states).mark_geoshape().encode(
-#     color=alt.Color("amt:Q", scale=alt.Scale(scheme="blues"), title="Transaction Amount", legend=alt.Legend(format="$,.0f")),
-#     tooltip=[
-#         alt.Tooltip("state_name:N", title="State"),
-#         alt.Tooltip("amt:Q", title="Transaction Amount ($)", format="$,.2f")
-#     ]
-# ).transform_lookup(
-#     lookup="id",
-#     from_=alt.LookupData(filtered_data, "state_id", ['state_name', 'amt'])
-# ).project(
-#     type="albersUsa"  # US map projection
-# ).properties(
-#     width=800,
-#     height=500,
-#     title=f"Transactions by state - Year: {selected_year} | Month: {selected_month}"
-# )
-# chart
+# state summary 
+if selected_state != "All":
+    st.subheader(f'{selected_state} {selected_year} Summary', divider='gray')
+    col0, col1, col2, col3 = st.columns(4)
+    
+    with col0:
+        st.metric(label =f"{selected_month[:3]}. {selected_year} transactions", value = '{:,}'.format(year_state_transactions))
+        st.metric(label =f"Total amount", value = str('$' + '{:,}'.format(round(year_state_transactions_amt))))
+    
+    with col1:
+        st.metric(label ="Legitimate", value = '{:,}'.format(year_state_legit_transactions))
+        st.metric(label ="Legit. Amount", value =str('$' + '{:,}'.format(round(year_state_legit_transactions_amt))))
+    
+    with col2:
+        st.metric(label ="Fraudulent",value = '{:,}'.format(year_state_fraud_transactions))
+        st.metric(label ="Fraud. Aumount", value =str('$' + '{:,}'.format(round(year_state_fraud_transactions_amt))))
+    
+    with col3:
+        st.metric(label ="Fraud/legit ratio (n)", value = '{:.2f}%'.format((year_state_fraud_transactions/year_state_legit_transactions)*100))
+        st.metric(label ="Fraud/legit ratio ($)", value = '{:.2f}%'.format((year_state_fraud_transactions_amt/year_state_legit_transactions_amt)*100))

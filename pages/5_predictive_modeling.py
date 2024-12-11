@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import load_model
 from sklearn.metrics import roc_auc_score, classification_report, roc_curve
 import os
+import base64
 
 
 # Load CSS file for custom styles
