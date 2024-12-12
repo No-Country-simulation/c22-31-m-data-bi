@@ -85,7 +85,7 @@ Develop a predictive model to detect fraudulent transactions on an electronic pa
 |----------------------------|--------------------------------------------|-------------------------------------------------------------------------|
 | Clone the project       | https://github.com/No-Country-simulation/c22-31-m-data-bi.git | Clone the project repository to your local machine.     |
 | Install dependencies    | pip install -r requirements.txt                               | Install all required dependencies for the project.      |
-| Run Predictive Fraud Detector       | streamlit run app.py                     | Run the app with Streamlit                                    |
+| Run Predictive Fraud Detector       | streamlit run main.py                     | Run the app with Streamlit                                    |
 ---
 
 
