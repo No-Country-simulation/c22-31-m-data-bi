@@ -196,8 +196,7 @@ if model:
         if not fraudulent_transactions.empty:
             alert_placeholder.error(
                 f"🚨 ALERT: Fraudulent transactions detected:\n"
-                f"{fraudulent_transactions[
-                    ['transaction_id', 'is_fraud_pred']]}")
+                f"{fraudulent_transactions[['transaction_id', 'is_fraud_pred']]}")
         else:
             alert_placeholder.success("✅ No fraud detected in this iteration.")
 
