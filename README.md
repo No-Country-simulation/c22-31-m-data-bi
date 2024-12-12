@@ -1,4 +1,9 @@
-# Predictive Fraud Detector (PFD)
+# Riskova
+
+<p align="center">
+  <img width="460" height="450" src="https://github.com/No-Country-simulation/c22-31-m-data-bi/blob/main/static/riskova_logo-sinfondo.png">
+</p>
+
 
 >"Security is not just an ideal, it is a necessity." – Eleanor Roosevelt
 
@@ -88,7 +93,10 @@ Develop a predictive model to detect fraudulent transactions on an electronic pa
 | Run Predictive Fraud Detector       | streamlit run main.py                     | Run the app with Streamlit                                    |
 ---
 
+### Video Riskova
+[![Video Riskova](#)
 
+### Demo
 
 #### Languages and Tools
 <p align="left">
