@@ -22,7 +22,7 @@
 
 | Date      | Version | Team                             | Organization | Description                                              |
 |------------|---------|-----------------------------------|--------------|----------------------------------------------------------|
-| 13/12/2024 |  01 |Riskover| No Country| MVP |
+| 13/12/2024 |  01 |Riskova| No Country| MVP |
 
 ---
 
@@ -30,7 +30,7 @@
 
 | Item                  | Descripción                                |
 |-----------------------|--------------------------------------------|
-| **Team**            | Riskover                          |
+| **Team**            | Riskova                        |
 | **Project**          | Predictive Fraud Detector (PFD)            |
 | **Start Date**   | 11/11/2024                                 |
 | **End Date**   | 13/12/2024                                 |
