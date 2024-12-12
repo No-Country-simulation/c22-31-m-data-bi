@@ -98,6 +98,10 @@ Develop a predictive model to detect fraudulent transactions on an electronic pa
 
 ### Demo
 
+You can try the live demo by clicking on the following link:
+
+[View Demo](https://riskova.onrender.com)
+
 #### Languages and Tools
 <p align="left">
 <a href="https://www.python.org/" target="_blank" rel="noreferrer"> <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue"/> </a>
