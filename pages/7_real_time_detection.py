@@ -8,6 +8,7 @@ import os
 import pickle
 import os
 import base64
+import re
 
 
 # Load CSS file
@@ -41,6 +42,7 @@ def get_base64_image(image_path):
 load_css()
 add_logo_to_header()
 
+
 # Application title
 st.title("Real-Time Fraud Detection")
 
@@ -48,6 +50,7 @@ st.title("Real-Time Fraud Detection")
 MODEL_PATH = "models/modelo_rna_sintetico_2.h5"
 SCALER_PATH = "data/models/scaler.pkl"
 SIMULATION_DATA_PATH = "dataset/df_real_detection.csv"
+PREDICTIONS_LOG_PATH = "dataset/predictions_log.csv"
 
 
 # Load the pre-trained model
@@ -104,6 +107,21 @@ st.header("Transaction Monitor")
 transaction_placeholder = st.empty()
 alert_placeholder = st.empty()
 
+# Check log file and create if none exists
+if not os.path.exists(PREDICTIONS_LOG_PATH):
+    pd.DataFrame(columns=required_columns +
+                 ["transaction_id", "is_fraud_pred"]).to_csv(
+        PREDICTIONS_LOG_PATH, index=False
+    )
+
+
+# Clear text messages to avoid coding errors
+def clean_text(text):
+    if isinstance(text, str):
+        return re.sub(r'[^\u0000-\uffff]', '', text)
+    return text
+
+
 # Fit the scaler temporarily if it wasn't pre-trained
 if not hasattr(scaler, "mean_"):
     scaler.fit(data[required_columns].values)
@@ -135,12 +153,11 @@ if model:
     # Monitor transactions in real-time
     while True:
         # Simulate a batch of transactions being processed in real-time
-        batch_size = 10
+        batch_size = 1
         transactions_in_transit = data.sample(n=batch_size, replace=True)
 
         if "transaction_count" not in st.session_state:
             st.session_state["transaction_count"] = 0
-
 
         # Increment transaction count in session state
         st.session_state["transaction_count"] += len(transactions_in_transit)
@@ -174,6 +191,19 @@ if model:
                 "is_fraud_pred"] = (predictions > 0.5).astype(int)
         except Exception as e:
             st.error(f"Prediction error: {e}")
+            break
+
+        # Keep predictions in the log
+        try:
+            transactions_in_transit = transactions_in_transit.applymap(
+                clean_text
+                )
+            transactions_in_transit.to_csv(
+                PREDICTIONS_LOG_PATH, mode='a',
+                index=False, header=False, encoding='utf-8-sig'
+            )
+        except Exception as e:
+            st.error(f"Error al guardar en el log: {e}")
             break
 
         # Display transactions in the monitor
