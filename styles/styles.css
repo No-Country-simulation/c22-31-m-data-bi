@@ -89,11 +89,6 @@
 
 /* Optional: Make sure input fields and buttons are visible */
 .stButton button {
-    color: #FFFFFF;
-    background: linear-gradient(
-        to bottom,
-        #145CB5,
-        #083770,
-        #531170
-    );
+    color:  #222434;
+    background-color:  #E9EDF0;
 }
