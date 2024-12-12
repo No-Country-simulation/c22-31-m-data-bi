@@ -39,7 +39,7 @@ st.title("Welcome to Riskova!")
 st.write("The transaction tracking system that helps you identifying fraudulent activity through data science and machine learning techniques. This model has been built using Kaggle's [Credit Card Transactions Fraud Detection Dataset](https://www.kaggle.com/datasets/kartik2112/fraud-detection?select=fraudTest.csv), that we will use to explain and visualize our approach to detecting fraudulent activity and the benefits it can bring to any organization in the electronic payment space.")
 
 # Path for the temporary file
-TEMP_FILE_PATH = "data/dataset.csv"
+TEMP_FILE_PATH = "dataset/dataset.csv"
 
 st.subheader("How to Start")
 st.write("1) Upload a CSV file of your company's transaction records to start the analysis.")

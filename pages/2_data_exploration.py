@@ -38,7 +38,7 @@ load_css()
 add_logo_to_header()
 
 # Constants
-TEMP_FILE_PATH = "data/dataset.csv"
+TEMP_FILE_PATH = "dataset/dataset.csv"
 
 # Title
 st.title("Data Exploration")

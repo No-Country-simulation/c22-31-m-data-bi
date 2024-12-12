@@ -40,7 +40,7 @@ add_logo_to_header()
 st.title("Data Preprocessing")
 
 # Temporary file path for saving and loading datasets
-TEMP_FILE_PATH = "data/dataset.csv"
+TEMP_FILE_PATH = "dataset/dataset.csv"
 
 # Load the dataset from session state or the temporary file
 if "data" not in st.session_state:
