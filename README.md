@@ -95,7 +95,7 @@ Develop a predictive model to detect fraudulent transactions on an electronic pa
 
 ### Video Riskova
 
-[![Video Riskova](https://github.com/No-Country-simulation/c22-31-m-data-bi/blob/main/static/img.png)](https://www.youtube.com/watch?v=CMKMeqgAcH4)
+[![Video Riskova](https://github.com/No-Country-simulation/c22-31-m-data-bi/blob/main/static/img2.png)](https://www.youtube.com/watch?v=CMKMeqgAcH4)
 
 
 ### Demo
