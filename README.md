@@ -43,7 +43,7 @@
 ### Project Planning
 
 #### Project Description
-The Predictive Fraud Detector (PFD) project aims to create a platform to assist in detecting fraud in electronic payments, utilizing machine learning techniques and data analysis.
+The Riskova project aims to create a platform to assist in detecting fraud in electronic payments, utilizing machine learning techniques and data analysis.
 The dataset used for this project was sourced from Kaggle. https://www.kaggle.com/datasets/kartik2112/fraud-detection
 
 #### General Objective
