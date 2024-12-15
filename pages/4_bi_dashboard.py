@@ -160,8 +160,8 @@ if selected_month != "All":
 
 else:
     # Filter by state only
-    filtered_data = filtered_data.groupby(['month', 'state', 'is_fraud'])['amt'].sum().reset_index()
-    filtered_data['month'] = 'All'
+    filtered_data = filtered_data.groupby(['state', 'is_fraud'])['amt'].sum().reset_index()
+#    filtered_data['month'] = 'All'
 
 # # Aggregated data
 # aggregated_data = (
@@ -226,33 +226,61 @@ st.altair_chart(single_chart, use_container_width=True)
 
 # state filter
 state_list = list(data["state"].sort_values().dropna().unique())
-selected_state = st.selectbox('Select a state', options=["All"]+ state_list, index=len(year_list)-1)
+selected_state = st.selectbox('Select a state', options=["Click to dropdown list"]+ state_list, index=len(year_list)-1)
 
 # state metrics
-year_state_transactions = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state)]['amt'].count()
+year_state_transactions = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state) ]['amt'].count()
 year_state_legit_transactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 0) & (data['state'] == selected_state)]['amt'].count()
 year_state_fraud_transactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1) & (data['state'] == selected_state)]['amt'].count()
 year_state_transactions_amt = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state)]['amt'].sum()
 year_state_legit_transactions_amt = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 0) & (data['state'] == selected_state)]['amt'].sum()
 year_state_fraud_transactions_amt = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1) & (data['state'] == selected_state)]['amt'].sum()
 
-# state summary 
-if selected_state != "All":
-    st.subheader(f'{selected_state} {selected_year} Summary', divider='gray')
-    col0, col1, col2, col3 = st.columns(4)
-    
-    with col0:
-        st.metric(label =f"{selected_month[:3]}. {selected_year} transactions", value = '{:,}'.format(year_state_transactions))
-        st.metric(label =f"Total amount", value = str('$' + '{:,}'.format(round(year_state_transactions_amt))))
-    
-    with col1:
-        st.metric(label ="Legitimate", value = '{:,}'.format(year_state_legit_transactions))
-        st.metric(label ="Legit. Amount", value =str('$' + '{:,}'.format(round(year_state_legit_transactions_amt))))
-    
-    with col2:
-        st.metric(label ="Fraudulent",value = '{:,}'.format(year_state_fraud_transactions))
-        st.metric(label ="Fraud. Aumount", value =str('$' + '{:,}'.format(round(year_state_fraud_transactions_amt))))
-    
-    with col3:
-        st.metric(label ="Fraud/legit ratio (n)", value = '{:.2f}%'.format((year_state_fraud_transactions/year_state_legit_transactions)*100))
-        st.metric(label ="Fraud/legit ratio ($)", value = '{:.2f}%'.format((year_state_fraud_transactions_amt/year_state_legit_transactions_amt)*100))
+month_state_transactions = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state) & (data['month'] == selected_month)]['amt'].count()
+month_state_legit_transactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 0) & (data['state'] == selected_state) & (data['month'] == selected_month)]['amt'].count()
+month_state_fraud_transactions = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1) & (data['state'] == selected_state) & (data['month'] == selected_month)]['amt'].count()
+month_state_transactions_amt = data.loc[(data['year'] == selected_year) & (data['state'] == selected_state) & (data['month'] == selected_month)]['amt'].sum()
+month_state_legit_transactions_amt = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 0) & (data['state'] == selected_state) & (data['month'] == selected_month)]['amt'].sum()
+month_state_fraud_transactions_amt = data.loc[(data['year'] == selected_year) & (data['is_fraud'] == 1) & (data['state'] == selected_state) & (data['month'] == selected_month)]['amt'].sum()
+
+# state summary
+if selected_state != "Click to dropdown list":
+    if selected_month == "All":
+        st.subheader(f'{selected_state} {selected_year} Summary', divider='gray')
+        col0, col1, col2, col3 = st.columns(4)
+        
+        with col0:
+            st.metric(label =f"{selected_year} transactions", value = '{:,}'.format(year_state_transactions))
+            st.metric(label =f"Total amount", value = str('$' + '{:,}'.format(round(year_state_transactions_amt))))
+        
+        with col1:
+            st.metric(label ="Legitimate", value = '{:,}'.format(year_state_legit_transactions))
+            st.metric(label ="Legit. Amount", value =str('$' + '{:,}'.format(round(year_state_legit_transactions_amt))))
+        
+        with col2:
+            st.metric(label ="Fraudulent",value = '{:,}'.format(year_state_fraud_transactions))
+            st.metric(label ="Fraud. Aumount", value =str('$' + '{:,}'.format(round(year_state_fraud_transactions_amt))))
+        
+        with col3:
+            st.metric(label ="Fraud/legit ratio (n)", value = '{:.2f}%'.format((year_state_fraud_transactions/year_state_legit_transactions)*100))
+            st.metric(label ="Fraud/legit ratio ($)", value = '{:.2f}%'.format((year_state_fraud_transactions_amt/year_state_legit_transactions_amt)*100))
+
+    elif selected_month != 'All':
+        st.subheader(f'{selected_state} {selected_month} {selected_year} Summary', divider='gray')
+        col0, col1, col2, col3 = st.columns(4)
+        
+        with col0:
+            st.metric(label =f"{selected_month[0:3]}. transactions", value = '{:,}'.format(month_state_transactions))
+            st.metric(label =f"Total amount", value = str('$' + '{:,}'.format(round(month_state_transactions_amt))))
+        
+        with col1:
+            st.metric(label ="Legitimate", value = '{:,}'.format(month_state_legit_transactions))
+            st.metric(label ="Legit. Amount", value =str('$' + '{:,}'.format(round(month_state_legit_transactions_amt))))
+        
+        with col2:
+            st.metric(label ="Fraudulent",value = '{:,}'.format(month_state_fraud_transactions))
+            st.metric(label ="Fraud. Aumount", value =str('$' + '{:,}'.format(round(month_state_fraud_transactions_amt))))
+        
+        with col3:
+            st.metric(label ="Fraud/legit ratio (n)", value = '{:.2f}%'.format((month_state_fraud_transactions/month_state_legit_transactions)*100))
+            st.metric(label ="Fraud/legit ratio ($)", value = '{:.2f}%'.format((month_state_fraud_transactions_amt/month_state_legit_transactions_amt)*100))
