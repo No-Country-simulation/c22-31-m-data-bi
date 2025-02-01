@@ -116,16 +116,6 @@ You can try the live demo by clicking on the following link:
 </p>
 
 
-### Authors                                           
+### Authors    
 
-Jose Ibarra
-**Business Analyst**
-<p><a href="https://www.linkedin.com/in/jose-ignacio-ibarra-696b03a6" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
-
-Gabriela Lopez
-**Data Analytics**
-<p><a href="http://www.linkedin.com/in/-gabriela-lopez" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
-
-Silvana Jaramillo
-**Machine Learning Engineer**
-<p><a href="https://linkedin.com/in/silvana-jaramillo" target="blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> </a></p>
+[![Riskova contributors](https://contrib.rocks/image?repo=No-Country-simulation/c22-31-m-data-bi)](https://github.com/No-Country-simulation/c22-31-m-data-bi/graphs/contributors)
